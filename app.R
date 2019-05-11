@@ -77,7 +77,7 @@ ui <- dashboardPage(
         
         withSpinner(
           size = 3,
-          plotOutput(outputId = "dotPlot",
+          plotlyOutput(outputId = "dotPlot",
                      width = "100%",
                      height = "900px"
                      )
@@ -149,7 +149,7 @@ server <- function(input, output, session) {
   
   
   # Start Graph
-  output$dotPlot <- renderPlot({
+  output$dotPlot <- renderPlotly({
     
     req(parsedData())
     
@@ -161,7 +161,7 @@ server <- function(input, output, session) {
     g <- ggplot(df, aes(x = expense_ratio, y = return, color = fund_type)) +
       geom_point(size = 5, alpha = 0.5 )
     
-    g
+    g <- ggplotly(g)
     
   })
   # End Graph

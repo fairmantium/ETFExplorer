@@ -1,4 +1,4 @@
-var url ='https://investor.vanguard.com/etf/list#/etf/asset-class/month-end-returns';
+var url ='https://investor.vanguard.com/etf/list#/mutual-funds/asset-class/month-end-returns';
     var page = new WebPage();
     var fs = require('fs');
     page.open(url, function (status) {
